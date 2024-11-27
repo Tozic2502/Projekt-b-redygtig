@@ -1,6 +1,7 @@
 package org.example.projektbaedygtig;
 
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 
@@ -30,5 +31,6 @@ public class Controller {
         });
     }
 
-
+    public void OnButtonClickReset(ActionEvent actionEvent) {
+    }
 }
