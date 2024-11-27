@@ -10,6 +10,7 @@ module org.example.projektbaedygtig {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires java.desktop;
 
     opens org.example.projektbaedygtig to javafx.fxml;
     exports org.example.projektbaedygtig;

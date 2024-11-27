@@ -1,16 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="org.example.projektbaedygtig.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
-
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<BorderPane prefHeight="532.0" prefWidth="625.0" style="-fx-background-color: #9fb3c9; -fx-border-color: #2b4766;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.projektbaedygtig.Controller">
+   <center>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+            <LineChart fx:id="monthChart" layoutX="-1.0" prefHeight="400.0" prefWidth="628.0" visible="false">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </LineChart>
+            <LineChart fx:id="dayChart" prefHeight="400.0" prefWidth="626.0" visible="false">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </LineChart>
+            <LineChart fx:id="yearChart" prefHeight="400.0" prefWidth="625.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </LineChart>
+         </children>
+      </AnchorPane>
+   </center>
+   <bottom>
+      <AnchorPane prefHeight="125.0" prefWidth="626.0" BorderPane.alignment="CENTER">
+         <children>
+            <ChoiceBox fx:id="choiceBoxMonth" layoutX="162.0" layoutY="30.0" prefWidth="150.0" style="-fx-border-color: #2b4766;" />
+            <ChoiceBox fx:id="choiceBoxSite" layoutX="61.0" layoutY="29.0" prefHeight="26.0" prefWidth="74.0" style="-fx-border-color: #2b4766;" />
+            <DatePicker fx:id="datePicker" layoutX="345.0" layoutY="30.0" style="-fx-border-color: #2b4766;" />
+            <Button fx:id="resetButton" layoutX="398.0" layoutY="75.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="70.0" style="-fx-border-color: #2b4766; -fx-background-radius: 60; -fx-border-radius: 60;" text="Reset" textFill="#2b4766" />
+            <Button fx:id="pickButton" layoutX="127.0" layoutY="76.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="70.0" style="-fx-border-color: #2b4766; -fx-border-radius: 60; -fx-background-radius: 60;" text="Select" textFill="#2b4766" />
+            <Label layoutX="279.0" layoutY="71.0" prefHeight="40.0" prefWidth="129.0">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </bottom>
+   <top>
+      <TextField alignment="CENTER" prefHeight="58.0" prefWidth="627.0" style="-fx-background-color: #9fb3c9;" text="Solarpower Observer" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </TextField>
+   </top>
+</BorderPane>
