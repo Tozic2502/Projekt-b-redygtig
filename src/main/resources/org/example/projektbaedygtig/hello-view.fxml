@@ -20,7 +20,7 @@
    <bottom>
       <HBox prefHeight="80.0" prefWidth="398.0" BorderPane.alignment="CENTER">
          <children>
-            <ChoiceBox fx:id="choiceBoxMaaned" prefWidth="150.0">
+            <ChoiceBox fx:id="choiceBoxMonth" prefWidth="150.0">
                <HBox.margin>
                   <Insets left="10.0" right="10.0" top="30.0" />
                </HBox.margin>
