@@ -8,7 +8,7 @@ import javafx.scene.chart.LineChart;
 public class Controller {
 
     @FXML
-    private ChoiceBox<String> choiceBoxSite, ChoiceBoxMonth;
+    private ChoiceBox<String> choiceBoxSite, choiceBoxMonth;
     @FXML
     private LineChart monthChart, yearChart, dayChart;
 
@@ -18,25 +18,28 @@ public class Controller {
         choiceBoxMonth.setValue("January");
         OnButtonClickReset();
         OnButtonClickReset();
-        /**
-         * Populate months
+        /*
+          Populate months
          */
-        ChoiceBoxMonth.getItems().addAll("January","February", "March","April", "May",
+        choiceBoxMonth.getItems().addAll("January","February", "March","April", "May",
                 "June", "July", "August", "September", "October", "November", "December" );
 
-        /**
-         *  A default value/month is set
+        /*
+           A default value/month is set
          */
-        ChoiceBoxMonth.setValue("January");
+        choiceBoxMonth.setValue("January");
 
-        /**
-         * Add a listener for month selection
+        /*
+          Add a listener for month selection
          */
-        ChoiceBoxMonth.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            System.out.println("Selected Month" + newValue);
-        });
+        choiceBoxMonth.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> System.out.println("Selected Month" + newValue));
     }
 
+    /**
+     * When the button is click its reset so you don't need to close and reopen the program to reset it
+     * the button works so if you click it, it makes the other chart invisible and makes it so you can see the
+     * year chart again
+     */
     @FXML
     protected void OnButtonClickReset() {
 
@@ -58,47 +61,69 @@ public class Controller {
     @FXML
     protected void OnButtonClickPick() {
         String selectedMonth = choiceBoxMonth.getValue();
-
+        yearChart.setVisible(false);
 
             if (selectedMonth != null) {
                 switch (selectedMonth) {
                     case "January":
                         monthChart.getData().clear();
                         monthChart.setVisible(true);
-                        monthChart.getData().addAll();
+                        monthChart.getData();
                         break;
                     case "February":
-
+                        monthChart.getData().clear();
+                        monthChart.setVisible(true);
+                        monthChart.getData();
                         break;
                     case "March":
-
+                        monthChart.getData().clear();
+                        monthChart.setVisible(true);
+                        monthChart.getData();
                         break;
                     case "April":
-
+                        monthChart.getData().clear();
+                        monthChart.setVisible(true);
+                        monthChart.getData();
                         break;
                     case "May":
-
+                        monthChart.getData().clear();
+                        monthChart.setVisible(true);
+                        monthChart.getData();
                         break;
                     case "June":
-
+                        monthChart.getData().clear();
+                        monthChart.setVisible(true);
+                        monthChart.getData();
                         break;
                     case "July":
-
+                        monthChart.getData().clear();
+                        monthChart.setVisible(true);
+                        monthChart.getData();
                         break;
                     case "August":
-
+                        monthChart.getData().clear();
+                        monthChart.setVisible(true);
+                        monthChart.getData();
                         break;
                     case "September":
-
+                        monthChart.getData().clear();
+                        monthChart.setVisible(true);
+                        monthChart.getData();
                         break;
                     case "October":
-
+                        monthChart.getData().clear();
+                        monthChart.setVisible(true);
+                        monthChart.getData();
                         break;
                     case "November":
-
+                        monthChart.getData().clear();
+                        monthChart.setVisible(true);
+                        monthChart.getData();
                         break;
                     case "December":
-
+                        monthChart.getData().clear();
+                        monthChart.setVisible(true);
+                        monthChart.getData();
                         break;
 
                 }
