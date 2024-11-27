@@ -22,7 +22,9 @@ public class Controller {
          */
         ChoiceBoxMonth.setValue("January");
 
-
+        /**
+         * Add a listener for month selection
+         */
         ChoiceBoxMonth.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             System.out.println("Selected Month" + newValue);
         });
