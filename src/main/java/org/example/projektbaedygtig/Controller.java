@@ -12,13 +12,6 @@ private ChoiceBox<String> choiceBoxSite;
 @FXML
 private ChoiceBox<String> choiceBoxMonth;
 
-
-@FXML
-    public void initialize() {
-        choiceBoxSite.setValue("Site");
-        choiceBoxMonth.setValue("January");
-    }
-
     @FXML
     private ChoiceBox<String> monthChoiceBox;
 
