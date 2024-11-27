@@ -5,6 +5,10 @@ import java.io.FileReader;
 import java.io.IOException;
 
 class TSVReaderForGraph {
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         String filePath = "src/main/resources/SolcelleData.tsv"; // Path to your file
         int maxRows = 1000; // Adjust based on your dataset size
