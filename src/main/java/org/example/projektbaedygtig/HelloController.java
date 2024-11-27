@@ -6,12 +6,28 @@ import java.io.IOException;
 
 class TSVReaderForGraph {
     /**
-     *
-     * @param args
+     * This program reads numerical data from a TSV file and stores it in a 2D array.
+      @param args Command-line arguments (not used).
+
+      Functionality:
+      - Reads data from a TSV file line by line.
+      - Stores each record as a row in a 2D array (`data[][]`).
+      - Allows flexible selection of X and Y axes for graphing.
+
+      Data columns:
+         - Column 0: `_id`
+         - Column 1: `sid`
+         - Column 2: `total`
+         - Column 3: `online`
+         - Column 4: `offline`
+      Usage:
+      - Use the `prepareGraph` method to define which columns to use for the X and Y axes.
+      - For example, `prepareGraph(data, rowIndex, 2, 3)` uses `total` as X and `online` as Y.
      */
+
     public static void main(String[] args) {
-        String filePath = "src/main/resources/SolcelleData.tsv"; // Path to your file
-        int maxRows = 1000; // Adjust based on your dataset size
+        String filePath = "src/main/resources/SolcelleData.tsv"; // Path to our file
+        int maxRows = 10000; // dataset size
         double[][] data = new double[maxRows][5]; // Array for numerical data (_id, sid, total, online, offline)
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
@@ -22,14 +38,14 @@ class TSVReaderForGraph {
             // Read file line by line
             while ((line = br.readLine()) != null) {
                 if (isHeader) {
-                    isHeader = false; // Skip header line
+                    isHeader = false; // Skips header line
                     continue;
                 }
 
-                // Split the line by tab
+                // Splits the line
                 String[] columns = line.split("\t");
 
-                // Parse and store numerical values in the array
+                // Parse and stores numerical values in the array for:
                 data[rowIndex][0] = Double.parseDouble(columns[0]); // _id
                 data[rowIndex][1] = Double.parseDouble(columns[2]); // sid
                 data[rowIndex][2] = Double.parseDouble(columns[3]); // total
@@ -38,7 +54,7 @@ class TSVReaderForGraph {
 
                 rowIndex++;
 
-                // Stop if we exceed maxRows
+                // It stops if we exceed maxRows
                 if (rowIndex >= maxRows) {
                     System.out.println("Warning: Maximum row limit reached!");
                     break;
@@ -63,6 +79,5 @@ class TSVReaderForGraph {
             System.out.println("X: " + data[i][xIndex] + ", Y: " + data[i][yIndex]);
         }
 
-        // Here, you can pass the data to your preferred graphing library
     }
 }
