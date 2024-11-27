@@ -12,21 +12,21 @@ public class Controller {
     @FXML
     private LineChart monthChart, yearChart, dayChart;
 
+    /**
+     * All the months is placed in the monthChoicebox.
+     * The default value is set to January in the Choicebox.
+     */
+
     @FXML
     public void initialize() {
         choiceBoxSite.setValue("Site");
         choiceBoxMonth.setValue("January");
         OnButtonClickReset();
         OnButtonClickReset();
-        /*
-          Populate months
-         */
+
         choiceBoxMonth.getItems().addAll("January","February", "March","April", "May",
                 "June", "July", "August", "September", "October", "November", "December" );
 
-        /*
-           A default value/month is set
-         */
         choiceBoxMonth.setValue("January");
     }
 
