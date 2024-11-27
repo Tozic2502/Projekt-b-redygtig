@@ -2,7 +2,6 @@ package org.example.projektbaedygtig;
 
 
 import javafx.fxml.FXML;
-import javafx.scene.chart.LineChart;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
@@ -51,23 +50,4 @@ private DatePicker datePicker;
         });
 
     }
-
-    /**
-     *
-     */
-   /* @FXML
-public void getDataFromDay() {
-    //linechart.getData().clear();
-    String selectedDate = datePicker.getValue();
-
-    if(selectedDate != null){
-        
-    }
-
-}
-
-    */
-
-
-
 }
