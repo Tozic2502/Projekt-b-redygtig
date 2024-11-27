@@ -4,25 +4,25 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-class TSVReaderForGraph {
+    public class TSVReaderForGraph {
     /**
      * This program reads numerical data from a TSV file and stores it in a 2D array.
-      @param args Command-line arguments (not used).
+     @param args Command-line arguments (not used).
 
-      Functionality:
-      - Reads data from a TSV file line by line.
-      - Stores each record as a row in a 2D array (`data[][]`).
-      - Allows flexible selection of X and Y axes for graphing.
+     Functionality:
+     - Reads data from a TSV file line by line.
+     - Stores each record as a row in a 2D array (`data[][]`).
+     - Allows flexible selection of X and Y axes for graphing.
 
-      Data columns:
-         - Column 0: `_id`
-         - Column 1: `sid`
-         - Column 2: `total`
-         - Column 3: `online`
-         - Column 4: `offline`
-      Usage:
-      - Use the `prepareGraph` method to define which columns to use for the X and Y axes.
-      - For example, `prepareGraph(data, rowIndex, 2, 3)` uses `total` as X and `online` as Y.
+     Data columns:
+     - Column 0: `_id`
+     - Column 1: `sid`
+     - Column 2: `total`
+     - Column 3: `online`
+     - Column 4: `offline`
+     Usage:
+     - Use the `prepareGraph` method to define which columns to use for the X and Y axes.
+     - For example, `prepareGraph(data, rowIndex, 2, 3)` uses `total` as X and `online` as Y.
      */
 
     public static void main(String[] args) {
