@@ -27,24 +27,24 @@ private DatePicker datePicker;
         choiceBoxSite.setValue("Site");
         choiceBoxMonth.setValue("January");
         setStartDate();
-
     }
+
+    /**
+     * Method that limits the dates you can choose from and set the initial date to minDate.
+     * To avoid unnecessary problems if choosing a date outside the date limits.
+     */
     @FXML
     private void setStartDate(){
     LocalDate minDate = LocalDate.of(2022, 12, 15);
     LocalDate maxDate = LocalDate.of(2023, 2, 14);
     datePicker.setValue(minDate);
-        // Customize the DateCell to enforce the allowed date range
         datePicker.setDayCellFactory(_ -> new DateCell() {
-            @Override
-            public void updateItem(LocalDate date, boolean empty) {
-                super.updateItem(date, empty);
-                if (date != null) {
-                    if (date.isBefore(minDate) || date.isAfter(maxDate)) {
-                        datePicker.setDisable(true);
-                    }
-                    else{
-                        setDisable(false);
+    @Override
+    public void updateItem(LocalDate date, boolean empty) {
+        super.updateItem(date, empty);
+            if (date != null) {
+                if (date.isBefore(minDate) || date.isAfter(maxDate)) {
+                    setDisable(true);
                     }
                 }
             }
