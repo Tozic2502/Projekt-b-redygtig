@@ -8,7 +8,7 @@ import javafx.scene.chart.LineChart;
 public class Controller {
 
     @FXML
-    private ChoiceBox<String> choiceBoxSite;
+    private ChoiceBox<String> choiceBoxSite, ChoiceBoxMonth;
     @FXML
     private LineChart monthChart, yearChart, dayChart;
 
@@ -18,10 +18,24 @@ public class Controller {
         choiceBoxMonth.setValue("January");
         OnButtonClickReset();
         OnButtonClickReset();
-    }
+        /**
+         * Populate months
+         */
+        ChoiceBoxMonth.getItems().addAll("January","February", "March","April", "May",
+                "June", "July", "August", "September", "October", "November", "December" );
 
-    @FXML
-    private ChoiceBox<String> choiceBoxMonth;
+        /**
+         *  A default value/month is set
+         */
+        ChoiceBoxMonth.setValue("January");
+
+        /**
+         * Add a listener for month selection
+         */
+        ChoiceBoxMonth.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            System.out.println("Selected Month" + newValue);
+        });
+    }
 
     @FXML
     protected void OnButtonClickReset() {
