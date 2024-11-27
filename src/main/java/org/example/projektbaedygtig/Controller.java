@@ -14,7 +14,7 @@ private ChoiceBox<String> choiceBoxSite;
 @FXML
 private ChoiceBox<String> choiceBoxMonth;
 
-
+//Set values for the choiceboxes when the program is initialized.
 @FXML
     public void initialize() {
         choiceBoxSite.setValue("Site");
@@ -24,9 +24,11 @@ private ChoiceBox<String> choiceBoxMonth;
 @FXML
 public void getDataFromDay() {
     //linechart.getData().clear();
-    selectedDate = DatePicker.getValue();
+    String selectedDate = DatePicker.getValue();
 
-    if(selectedDate != null);
+    if(selectedDate != null){
+        
+    }
 
 }
 
