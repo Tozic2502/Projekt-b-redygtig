@@ -2,7 +2,9 @@ package org.example.projektbaedygtig;
 
 
 import javafx.fxml.FXML;
+import javafx.scene.chart.LineChart;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
 
 public class Controller {
 
@@ -18,4 +20,14 @@ private ChoiceBox<String> choiceBoxMonth;
         choiceBoxSite.setValue("Site");
         choiceBoxMonth.setValue("January");
     }
+
+@FXML
+public void getDataFromDay() {
+    //linechart.getData().clear();
+    selectedDate = DatePicker.getValue();
+
+    if(selectedDate != null);
+
+}
+
 }
