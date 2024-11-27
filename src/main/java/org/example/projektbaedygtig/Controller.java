@@ -28,11 +28,6 @@ public class Controller {
            A default value/month is set
          */
         choiceBoxMonth.setValue("January");
-
-        /*
-          Add a listener for month selection
-         */
-        choiceBoxMonth.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> System.out.println("Selected Month" + newValue));
     }
 
     /**
