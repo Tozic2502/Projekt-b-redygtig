@@ -11,6 +11,7 @@ module org.example.projektbaedygtig {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires java.desktop;
+    requires java.sql;
 
     opens org.example.projektbaedygtig to javafx.fxml;
     exports org.example.projektbaedygtig;

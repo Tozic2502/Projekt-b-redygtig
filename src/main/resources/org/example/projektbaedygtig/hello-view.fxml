@@ -25,7 +25,7 @@
                 <NumberAxis side="LEFT" />
               </yAxis>
             </LineChart>
-            <LineChart fx:id="yearChart" prefHeight="400.0" prefWidth="625.0" visible="false">
+            <LineChart fx:id="yearChart" prefHeight="400.0" prefWidth="625.0">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>
@@ -42,18 +42,19 @@
             <ChoiceBox fx:id="choiceBoxMonth" layoutX="162.0" layoutY="30.0" prefWidth="150.0" style="-fx-border-color: #2b4766;" />
             <ChoiceBox fx:id="choiceBoxSite" layoutX="61.0" layoutY="29.0" prefHeight="26.0" prefWidth="74.0" style="-fx-border-color: #2b4766;" />
             <DatePicker fx:id="datePicker" layoutX="345.0" layoutY="30.0" style="-fx-border-color: #2b4766;" />
-            <Button fx:id="resetButton" layoutX="398.0" layoutY="75.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="70.0" style="-fx-border-color: #2b4766; -fx-background-radius: 60; -fx-border-radius: 60;" text="Reset" textFill="#2b4766" onAction="#OnButtonClickReset" />
-            <Button fx:id="pickButton" layoutX="127.0" layoutY="76.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="70.0" style="-fx-border-color: #2b4766; -fx-border-radius: 60; -fx-background-radius: 60;" text="Select" textFill="#2b4766" onAction="#OnButtonClickPick" />
+            <Button fx:id="resetButton" layoutX="398.0" layoutY="75.0" mnemonicParsing="false" onAction="#OnButtonClickReset" prefHeight="36.0" prefWidth="70.0" style="-fx-border-color: #2b4766; -fx-background-radius: 60; -fx-border-radius: 60;" text="Reset" textFill="#2b4766" />
+            <Button fx:id="pickButton" layoutX="127.0" layoutY="76.0" mnemonicParsing="false" onAction="#OnButtonClickPick" prefHeight="36.0" prefWidth="70.0" style="-fx-border-color: #2b4766; -fx-border-radius: 60; -fx-background-radius: 60;" text="Select" textFill="#2b4766" />
             <Label layoutX="279.0" layoutY="71.0" prefHeight="40.0" prefWidth="129.0">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
+            <TextField disable="true" layoutX="359.0" layoutY="5.0" style="-fx-background-color: #9fb3c9;;" text="Choose Specifik Day" />
          </children>
       </AnchorPane>
    </bottom>
    <top>
-      <TextField alignment="CENTER" text="Solarpower Observer" BorderPane.alignment="CENTER">
+      <TextField alignment="CENTER" style="-fx-background-color: #9fb3c9;;" text="Solarpower Observer" BorderPane.alignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
