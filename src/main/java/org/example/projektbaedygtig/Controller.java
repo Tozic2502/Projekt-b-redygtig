@@ -93,14 +93,14 @@ private DatePicker datePicker;
             if (TSVReaderForGraph.data.get(i).get(1).contains(month))
             {
                 double Yaxis = Double.parseDouble(TSVReaderForGraph.data.get(i).get(4));
-                long Xaxis = Date.parse(TSVReaderForGraph.data.get(i).get(1));
+                String Xaxis = String.valueOf(Date.parse(TSVReaderForGraph.data.get(i).get(1)));
 
                 Graphs.series.getData().add(new XYChart.Data<>(Yaxis,Xaxis));
             }
             if(TSVReaderForGraph.data.get(i).get(1).contains(month) && TSVReaderForGraph.data.get(i).get(1).contains(datePicker.getValue().toString()))
             {
                 double Yaxis = Double.parseDouble(TSVReaderForGraph.data.get(i).get(4));
-                long Xaxis = Date.parse(TSVReaderForGraph.data.get(i).get(1));
+                String Xaxis = String.valueOf(Date.parse(TSVReaderForGraph.data.get(i).get(1)));
 
                 Graphs.series.getData().add(new XYChart.Data<>(Yaxis,Xaxis));
             }
