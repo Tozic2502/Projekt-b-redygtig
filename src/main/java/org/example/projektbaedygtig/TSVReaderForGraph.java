@@ -3,6 +3,8 @@ package org.example.projektbaedygtig;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.Date;
+import java.util.ArrayList;
 
     public class TSVReaderForGraph {
     /**
@@ -24,11 +26,11 @@ import java.io.IOException;
      - Use the `prepareGraph` method to define which columns to use for the X and Y axes.
      - For example, `prepareGraph(data, rowIndex, 2, 3)` uses `total` as X and `online` as Y.
      */
-
+    public static ArrayList<ArrayList<String>> data = new ArrayList<ArrayList<String>>();
     public static void main(String[] args) {
         String filePath = "src/main/resources/SolcelleData.tsv"; // Path to our file
-        int maxRows = 10000; // dataset size
-        double[][] data = new double[maxRows][5]; // Array for numerical data (_id, sid, total, online, offline)
+        int maxRows = 100001; // dataset size
+        ArrayList<ArrayList<String>> data = new ArrayList<ArrayList<String>>(); // Array for numerical data (_id, sid, total, online, offline)
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
@@ -43,18 +45,22 @@ import java.io.IOException;
                 }
 
                 // Splits the line
-                String[] columns = line.split("\t");
+                String[] columns = line.split("\\s+");
 
+                data.add(new ArrayList<>());
                 // Parse and stores numerical values in the array for:
-                data[rowIndex][0] = Double.parseDouble(columns[0]); // _id
-                data[rowIndex][1] = Double.parseDouble(columns[2]); // sid
-                data[rowIndex][2] = Double.parseDouble(columns[3]); // total
-                data[rowIndex][3] = Double.parseDouble(columns[4]); // online
-                data[rowIndex][4] = Double.parseDouble(columns[5]); // offline
+                data.get(rowIndex).add(String.valueOf(columns[0])); // _id
+                data.get(rowIndex).add(String.valueOf(columns[1]));
+                data.get(rowIndex).add(String.valueOf(columns[2])); // sid
+                data.get(rowIndex).add(String.valueOf(columns[3])); // total
+                data.get(rowIndex).add(String.valueOf(columns[4])); // online
+                data.get(rowIndex).add(String.valueOf(columns[5]));// offline
+
+                System.out.println(data.get(rowIndex).get(0) + " " + data.get(rowIndex).get(1) + " " + data.get(rowIndex).get(2) + " " + data.get(rowIndex).get(3) + " " +data.get(rowIndex).get(4) + " " + data.get(rowIndex).get(5));
 
                 rowIndex++;
 
-                // It stops if we exceed maxRows
+               // It stops if we exceed maxRows
                 if (rowIndex >= maxRows) {
                     System.out.println("Warning: Maximum row limit reached!");
                     break;
@@ -62,7 +68,7 @@ import java.io.IOException;
             }
 
             // Call the method to prepare and graph data
-            prepareGraph(data, rowIndex, 2, 3); // Example: X = total, Y = online
+            //prepareGraph(data, rowIndex, 2, 3); // Example: X = total, Y = online
 
         } catch (IOException | NumberFormatException e) {
             System.err.println("Error: " + e.getMessage());
