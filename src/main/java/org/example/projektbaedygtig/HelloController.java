@@ -6,31 +6,13 @@ import java.io.IOException;
 import java.sql.Date;
 import java.util.ArrayList;
 
-class TSVReaderForGraph {
-    /**
-     * This program reads numerical data from a TSV file and stores it in a 2D array.
-      @param args Command-line arguments (not used).
+class HelloController {
 
-      Functionality:
-      - Reads data from a TSV file line by line.
-      - Stores each record as a row in a 2D array (`data[][]`).
-      - Allows flexible selection of X and Y axes for graphing.
+    public static ArrayList<ArrayList<String>> getData() {
 
-      Data columns:
-         - Column 0: `_id`
-         - Column 1: `sid`
-         - Column 2: `total`
-         - Column 3: `online`
-         - Column 4: `offline`
-      Usage:
-      - Use the `prepareGraph` method to define which columns to use for the X and Y axes.
-      - For example, `prepareGraph(data, rowIndex, 2, 3)` uses `total` as X and `online` as Y.
-     */
-    public static ArrayList<ArrayList<String>> data = new ArrayList<ArrayList<String>>();
-    public static void main(String[] args) {
+        ArrayList<ArrayList<String>> data = new ArrayList<ArrayList<String>>();
         String filePath = "src/main/resources/SolcelleData.tsv"; // Path to our file
         int maxRows = 100001; // dataset size
-        ArrayList<ArrayList<String>> data = new ArrayList<ArrayList<String>>(); // Array for numerical data (_id, sid, total, online, offline)
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
@@ -56,7 +38,7 @@ class TSVReaderForGraph {
                 data.get(rowIndex).add(String.valueOf(columns[4])); // online
                 data.get(rowIndex).add(String.valueOf(columns[5]));// offline
 
-                System.out.println(data.get(rowIndex).get(0) + " " + data.get(rowIndex).get(1) + " " + data.get(rowIndex).get(2) + " " + data.get(rowIndex).get(3) + " " +data.get(rowIndex).get(4) + " " + data.get(rowIndex).get(5));
+                //System.out.println(data.get(rowIndex).get(0) + " " + data.get(rowIndex).get(1) + " " + data.get(rowIndex).get(2) + " " + data.get(rowIndex).get(3) + " " +data.get(rowIndex).get(4) + " " + data.get(rowIndex).get(5));
 
                 rowIndex++;
 
@@ -66,13 +48,14 @@ class TSVReaderForGraph {
                     break;
                 }
             }
-
             // Call the method to prepare and graph data
             //prepareGraph(data, rowIndex, 2, 3); // Example: X = total, Y = online
 
         } catch (IOException | NumberFormatException e) {
             System.err.println("Error: " + e.getMessage());
         }
+
+        return data;
     }
 
     // Method to prepare and simulate graphing
