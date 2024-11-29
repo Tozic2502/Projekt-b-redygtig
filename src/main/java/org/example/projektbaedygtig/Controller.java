@@ -1,6 +1,7 @@
 package org.example.projektbaedygtig;
 
 import javafx.fxml.FXML;
+import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DateCell;
@@ -48,8 +49,8 @@ public class Controller {
     private void setStartDate() {
         LocalDate minDate = LocalDate.of(2022, 12, 15);
         LocalDate maxDate = LocalDate.of(2023, 2, 14);
-        datePicker.setValue(minDate);
-        datePicker.setDayCellFactory(_ -> new DateCell() {
+        //datePicker.setValue(minDate);
+        datePicker.setDayCellFactory(e -> new DateCell() {
             @Override
             public void updateItem(LocalDate date, boolean empty) {
                 super.updateItem(date, empty);
@@ -93,24 +94,21 @@ public class Controller {
     }
 
     public String getNumberFromMonth(String month) {
-        switch (month) {
-            case "January": return "01";
-            case "February": return "02";
-            case "December": return "12";
-            default: return "01"; // Default to January if invalid
-        }
+        return switch (month) {
+            case "January" -> "01";
+            case "February" -> "02";
+            case "December" -> "12";
+            default -> "01"; // Default to January if invalid
+        };
     }
 
 
     @FXML
     public void showGraph() {
-        // Clear existing data from the monthChart
-        monthChart.getData().clear();
 
         // Get the selected month and site from the UI
         String selectedMonth = choiceBoxMonth.getValue();
         String selectedSite = choiceBoxSite.getValue();
-
         // Validate the site selection
         int siteId;
         try {
@@ -122,22 +120,44 @@ public class Controller {
         // Generate data for the selected month and site
         ArrayList<Integer> data = getAllDays(array, selectedMonth, siteId);
 
+        // Clear existing data from the monthChart
+        monthChart.getData().clear();
+        dayChart.getData().clear();
+        yearChart.getData().clear();
+
+        NumberAxis xAxis = (NumberAxis) monthChart.getXAxis();
+        NumberAxis yAxis = (NumberAxis) monthChart.getYAxis();
+        xAxis.setAutoRanging(true);
+        xAxis.setLowerBound(1);
+        xAxis.setUpperBound(data.size());
+        xAxis.setTickUnit(1);
+
+        yAxis.setAutoRanging(true);
+
+
+
         // Create a new data series
         XYChart.Series<Number, Number> series = new XYChart.Series<>();
         for (int i = 0; i < data.size(); i++) {
+            System.out.println(data.get(i));
             series.getData().add(new XYChart.Data<>(i + 1, data.get(i)));
         }
 
         // Set series name and add to the chart
         series.setName("Data for " + selectedMonth + " (Site: " + selectedSite + ")");
         monthChart.getData().add(series);
+        monthChart.applyCss();
+        monthChart.layout();
+        System.out.println("Lower Bound: " + yAxis.getLowerBound());
+        System.out.println("Upper Bound: " + yAxis.getUpperBound());
 
+        System.out.println("Lower Bound: " + xAxis.getLowerBound());
+        System.out.println("Upper Bound: " + xAxis.getUpperBound());
         // Make the monthChart visible
         monthChart.setVisible(true);
         dayChart.setVisible(false);
         yearChart.setVisible(false);
     }
-
 
     @FXML
     protected void OnButtonClickPick() {
@@ -147,8 +167,8 @@ public class Controller {
 
         // Handle visibility based on whether a specific date is picked
         if (datePicker.getValue() != null) {
-            dayChart.setVisible(true);
-            monthChart.setVisible(false);
+            dayChart.setVisible(false);
+            monthChart.setVisible(true);
         } else {
             monthChart.setVisible(true);
             dayChart.setVisible(false);
