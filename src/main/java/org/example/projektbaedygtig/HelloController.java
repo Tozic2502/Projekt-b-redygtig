@@ -3,7 +3,6 @@ package org.example.projektbaedygtig;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.Date;
 import java.util.ArrayList;
 
 class HelloController {
@@ -37,8 +36,6 @@ class HelloController {
                 data.get(rowIndex).add(String.valueOf(columns[3])); // total
                 data.get(rowIndex).add(String.valueOf(columns[4])); // online
                 data.get(rowIndex).add(String.valueOf(columns[5]));// offline
-
-                //System.out.println(data.get(rowIndex).get(0) + " " + data.get(rowIndex).get(1) + " " + data.get(rowIndex).get(2) + " " + data.get(rowIndex).get(3) + " " +data.get(rowIndex).get(4) + " " + data.get(rowIndex).get(5));
 
                 rowIndex++;
 
