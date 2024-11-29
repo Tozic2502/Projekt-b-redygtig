@@ -7,12 +7,10 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.chart.LineChart;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Controller {
-
     @FXML
     private ChoiceBox<String> choiceBoxSite, choiceBoxMonth;
     @FXML
@@ -22,6 +20,11 @@ public class Controller {
 
     private static ArrayList<ArrayList<String>> array = HelloController.getData();
 
+    /**
+     * Initializing method, where the site numbers are connected to the choicebox so the user can choose a site.
+     * Sets at a startprompt to the choiceboxes and a buttons, so the user knows they do.
+     * Gets the choices for the month choicebox.
+     */
     @FXML
     public void initialize() {
         int[] uniqueSites = {
