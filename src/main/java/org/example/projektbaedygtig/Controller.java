@@ -7,7 +7,6 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.chart.LineChart;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -45,6 +44,10 @@ public class Controller {
         setStartDate();
     }
 
+    /**
+     * Sets a limit on the date
+     * and makes it so you cant use outside the data gathered
+     */
     @FXML
     private void setStartDate() {
         LocalDate minDate = LocalDate.of(2022, 12, 15);
@@ -61,6 +64,10 @@ public class Controller {
         });
     }
 
+    /**
+     * Handles the reset button
+     * and makes it ready for the next value
+     */
     @FXML
     protected void OnButtonClickReset() {
         monthChart.getData().clear();
@@ -72,6 +79,13 @@ public class Controller {
         yearChart.setVisible(true);
     }
 
+    /**
+     *
+     * @param array
+     * @param date
+     * @param site
+     * @return
+     */
     public int getDaykWh(ArrayList<ArrayList<String>> array, String date, int site) {
         int kWh = 0;
         for (ArrayList<String> entry : array) {
@@ -93,6 +107,11 @@ public class Controller {
         return data;
     }
 
+    /**
+     *
+     * @param month
+     * @return
+     */
     public String getNumberFromMonth(String month) {
         return switch (month) {
             case "January" -> "01";
@@ -102,7 +121,10 @@ public class Controller {
         };
     }
 
-
+    /**
+     * Make the graph appear and makes it too
+     * and sets the data ready for the select button
+     */
     @FXML
     public void showGraph() {
 
@@ -159,6 +181,10 @@ public class Controller {
         yearChart.setVisible(false);
     }
 
+    /**
+     * Handel all button clicks on select
+     * to make so you need to confirm your choice before rendering the chart
+     */
     @FXML
     protected void OnButtonClickPick() {
         String selectedMonth = choiceBoxMonth.getValue();
