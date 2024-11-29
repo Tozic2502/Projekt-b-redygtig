@@ -37,6 +37,7 @@ class HelloController {
                 data.get(rowIndex).add(String.valueOf(columns[4])); // online
                 data.get(rowIndex).add(String.valueOf(columns[5]));// offline
 
+
                 rowIndex++;
 
                // It stops if we exceed maxRows
@@ -45,8 +46,6 @@ class HelloController {
                     break;
                 }
             }
-            // Call the method to prepare and graph data
-            //prepareGraph(data, rowIndex, 2, 3); // Example: X = total, Y = online
 
         } catch (IOException | NumberFormatException e) {
             System.err.println("Error: " + e.getMessage());
